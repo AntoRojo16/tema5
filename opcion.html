@@ -1,0 +1,45 @@
+{%extends "index.html"%}
+{%block contenedor%}
+
+<div class="hola">
+    <form action="seleccionar_opcion" method="post" class="d-flex justify-content-evenly justify-content-center">
+        <div class="form-group">
+            <select class="form-select" name="opS" id="">
+                <option>Seleccione una opcion</option>
+                <option value="1" {% if op=="1" %} selected {% endif %}>Registrar asistencia</option>
+                <option value="2" {% if op=="2" %} selected {% endif %}>Informe con detalles</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Seleccionar</button>
+        </div>
+    </form>
+</div>
+
+{% if op=='1' or op=='2' %}
+
+<div class="hola2">
+    <form action="/seleccionar_curso" method="post" class="d-flex justify-content-evenly justify-content-center">
+        <input type="hidden" name="opS" value="{{op}}">
+        <div class="form-group">
+            <select required class="form-select" name="curso" id="curso">
+                <option value="">Seleccione curso</option>
+                {% for curso in cursos %}
+                <option value="{{curso.id}}">{{curso.id}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-info">Seleccionar curso</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+{% endif %}
+
+{%endblock%}

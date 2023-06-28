@@ -1,0 +1,44 @@
+{%extends "index.html"%}
+{%block contenedor%}
+{% if opS == '1' %}
+
+<div class="hola3">
+    <form action="/guardar_asistencia" method="post">
+        <div class="lafecha">
+            <input required type="date" name="fecha" id="fecha">
+        </div>
+
+        {% for alumno in alumnos %}
+        <div class="prueba">
+            <input type="hidden" name="ids" value="{{alumno.id}}">
+            <div class="nombre">{{alumno.nombre}} {{alumno.apellido}}</div>
+            
+            
+            <div class="form-group">
+                <select name="clases" id="" class="form-select" required>
+                    <option value="">Seleccione clase</option>
+                    <option value="1">Aula</option>
+                    <option value="2">Educacion fisica</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="asistencias" id="" class="form-select" required>
+                    <option value="">Seleccione asistencia</option>
+                    <option value="s">Asistio</option>
+                    <option value="n">No asistio</option>
+                </select>
+            </div>
+            <div class="justificacion">
+                <p>Justificacion</p>
+                <input type="text" name="justificaciones" id="">
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="botongardar">
+            <button type="submit" class="btn btn-success">Guardar asistencia</button>
+        </div>
+    </form>
+</div>
+{% endif %}
+{%endblock%}

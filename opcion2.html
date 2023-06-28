@@ -1,0 +1,40 @@
+{%extends "index.html"%}
+{%block contenedor%}
+{% if opS == '2' %}
+<form action="volver_pricipal" method="post">
+<div class="hola3">
+    <table class="table table-striped table-bordered" id="tabla">
+        <thead class="table-dark">
+            <tr>
+                <th>Apellido y nombre</th>
+                <th>Presentes aula</th>
+                <th>Presentes educacion fisica</th>
+                <th>Ausentes educacion fisica justificadas</th>
+                <th>Ausentes aula justificadas</th>
+                <th>Ausentes aula injustificadas</th>
+                <th>Ausentes educacion fisica injustificadas</th>
+                <th>Cómputo cantidad total de inasistencias</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alumno in resultado %}
+            <tr>
+                <td>{{ alumno.apellido }} {{ alumno.nombre }} {{ alumno.id }}</td>
+                <td>{{ alumno.presentes_aula }}</td>
+                <td>{{ alumno.presentes_educacion_fisica }}</td>
+                <td>{{ alumno.ausentes_educacion_fisica_justificadas }}</td>
+                <td>{{ alumno.ausentes_aula_justificadas }}</td>
+                <td>{{ alumno.ausentes_aula_injustificadas }}</td>
+                <td>{{ alumno.ausentes_educacion_fisica_ijustificadas }}</td>
+                <td>{{ alumno.total_inasistencias }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="botongardar">
+    <button type="submit" class="btn btn-success">Volver inicio</button>
+</div>
+</form>
+{% endif %}
+{%endblock%}

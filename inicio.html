@@ -1,0 +1,27 @@
+{%extends "index.html"%} 
+{%block contenedor%}
+
+<div class="mm">
+    <div class="hola">
+      <h2 class="text-center fs-4" >Inicio de Sesión</h2>
+      <form class="form" action="/iniciar_sesion" method="post">
+        <div class="mb-3">
+          <label class="form-label" for="correo">Correo Electrónico</label>
+          <input required class="form-control" type="email" name="correo" id="correo"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="password">Contraseña</label>
+          <input required class="form-control" type="password" name="contraseña" id="contraseña"/>
+        </div>
+        <div class="opcion" >
+          <select class="form-select"  name="cargo">
+            <option selected value="Preceptor">Preceptor</option>
+            <option value="Padre">Padre</option>
+          </select>
+        </div>
+        <div class="botonInicio">
+          <input class="btn btn-primary" type="submit" value="Iniciar Sesión">
+        </div>
+      </form>
+    </div> 
+{%endblock%}
